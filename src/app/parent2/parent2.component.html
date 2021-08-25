@@ -1,0 +1,6 @@
+<p>parent2 works!</p>
+<!-- calling child from Parent means developing Parent - Child relation-->
+
+<!-- (ChildEvent) once triggered in Child component sends/ emits data/event ie. stored in receivedMsg($event)-->
+<app-child2 (childEvent) = "receivedMsg($event)"></app-child2>
+This is message received from Child : {{msgFromChild}} 

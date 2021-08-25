@@ -1,0 +1,45 @@
+<!-- on submitting the form send entire form to registerUser function-->
+<!-- #registrationForm refers to entire ngForm-->
+<!-- variables with # are not available outside html page so uname is used to send data to backend
+and #userName is used here for validation-->
+<!-- ngModel contains data of uname entered so we are assigning it to #userName-->
+<form #registrationForm = ngForm (ngSubmit)="registerUser(registrationForm)">
+       <!-- ngModel sends the value to backend in form of name-value pair-->
+    <div>
+        <label for="name">
+            Name    
+        </label>
+        <input
+        type="text"
+        name = "uname"
+        pattern = "[a-zA-Z]*"
+        required
+        ngModel
+        #userName  = ngModel/>
+  
+        <!-- explicitly validating the html attributes-->
+        <div *ngIf = "userName.touched ">
+            <div *ngIf = "userName.errors?.required">
+                Name is required
+            </div>
+            <div *ngIf = "userName.errors?.pattern">
+                Name is invalid
+            </div>
+         </div>
+        <div>
+    </div>
+        <label for="contact">
+            Contact
+        </label>
+        <input type="text"
+        name = "ucontact"/>
+    </div>
+    <div>
+        <label for="email">
+            Email
+        </label>
+        <input type="text"
+        name = "uemail"/>
+    </div>
+    <button type="submit" [disabled]= "registrationForm.invalid">Register</button>
+</form>

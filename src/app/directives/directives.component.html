@@ -1,0 +1,35 @@
+<p>directives works!</p>
+
+<!-- values to be passed or called from .ts inclue them in  " "-->
+
+<!-- directive is like a user defined attribute-->
+<!-- else part is written in <ng-template> using #name as a identifier -->
+<!--message displays when flag is true-->
+
+<!-- *ngIf-->
+<h1 *ngIf = "flag else elseBlock">
+    <p appCustomdirective>{{message}}</p> 
+</h1>
+
+<ng-template #elseBlock>
+    <h2> no text to display</h2>
+</ng-template>
+
+<!-- *ngFor -->
+<div>
+    Months:
+        <select>
+            <option *ngFor = "let month of months">{{month}}</option>
+        </select>
+</div>
+
+<!-- ngSwitch -->
+<!-- ngSwitch just holds the value and doesn't perform any operation so no * used b4-->
+<div *ngFor = "let num of numbers">
+    <div ngSwitch = "{{num%2}}">
+        <div *ngSwitchCase = "'0'"> {{num}} is Even</div>
+        <div *ngSwitchCase = "'1'"> {{num}} is Odd</div>
+        <div *ngSwitchDefault>Default Case</div>
+    </div>
+</div>
+<!--DOM understands only string dt so we have given 0, 1 as string " ' ' "-->

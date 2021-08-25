@@ -1,0 +1,49 @@
+<form [formGroup] = "loginForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label> Name: </label>
+        <input
+                type  = "text"
+                formControlName = "uname" 
+              />
+
+         <div style = "color: red;"*ngIf = "aForm.uname && aForm.uname.invalid && aForm.uname.touched">
+            User input field invalid
+        </div>
+       
+    </div>
+    <div>
+        <label> Email: </label>
+        <input
+                type  = "text"
+                formControlName = "uemail" 
+              />
+
+         <div style = "color: red;"*ngIf = "aForm.uname && aForm.uname.invalid && aForm.uname.touched">
+            Email invalid
+        </div>
+       
+    </div>
+    <div>
+        <label> Password: </label>
+        <input
+                type  = "text"
+                formControlName = "pswd" />
+
+                <div style = "color: red;"*ngIf = "aForm.pswd && aForm.pswd.invalid && aForm.pswd.touched">
+                   Password Invalid
+                </div>
+    </div>
+    <div>
+        <label>Confirm Password: </label>
+        <input
+                type  = "text"
+                formControlName = "cpswd" />
+
+                <div style = "color: red;"*ngIf = "aForm.pswd && aForm.pswd.invalid && aForm.pswd.touched">
+                   Password Not matched
+                </div>
+    </div>
+
+    <button type = "submit" [disabled]= "loginForm.invalid">Submit</button>
+
+</form>

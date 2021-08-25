@@ -1,0 +1,23 @@
+<p>{{title | uppercase }}</p>
+<p>{{title | lowercase }}</p>
+
+<p>{{today}}</p>
+<p>{{today | date:'d/M/y'}}</p> <!-- M must be capital for month, m is minutes-->
+
+<!-- y gives entire yr 2021, yy gives 21 yyyy 2021
+MM - 08, M - 8-->
+<p> {{today | date: 'yyyyMMdd' | uppercase }}</p>
+<p> {{today | date : 'shortTime' }}</p>
+
+<p> {{jsonval}}</p>
+<p> {{jsonval | json}}</p>
+
+<p> {{months }}</p>
+<p> {{months | slice: 2:5 }}</p>
+
+<p> {{ 123.567890 | number: '3.4-4' }}</p>
+<p> {{ 1234.567890 | number: '3.4-10' }}</p>
+
+<!-- custom pipe name-->
+
+<p> Square of 5 is: {{ 5 | custompipecomponent }}</p>
